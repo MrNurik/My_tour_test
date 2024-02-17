@@ -1,0 +1,426 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/5730/5730373.png" type="">
+
+
+  <title> My Tour </title>
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+<style>{% block style %}{% endblock %}</style>
+</head>
+
+<body>
+    {% block content %}
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{% static 'images/hero-bg.png' %}" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'tours:main' %}">
+            <span>
+              My Tour
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link, btnText" href="{% url 'tours:main' %}">Үйге <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link, btnText" href="#about-section"> Біз туралы</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link, btnText" href="{% url 'tours:booking' %}">Брондау</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+
+    
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+
+
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Samal Resort & SPA
+                    </h1>
+                    <p>
+                      «Самал курорт» қонақ үйі Алматы қаласында, «Медеу» тау шаңғысы курортының жанында орналасқан. Тегін жеке автотұрақ бар. Алматы қаласының орталығы көлікпен 10 минуттық жерде.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'tours:booking' %}" class="btn1">
+                        Толығырақ
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/square600/383430240.webp?k=f51a3496600e975ccd2cf082dd33c63eca1ec3fffe739789d0f0fb779b085d28&o=" alt="" style="border-radius: 10%">
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      La Dolce Vita Resort
+                    </h1>
+                    <p>
+                      La Dolce Vita Resort – Қапшағай қаласында орналасқан курорттық қонақ үй. Онда маусымдық ашық бассейн, ортақ демалыс бөлмесі, мейрамхана және бар бар.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'tours:booking' %}" class="btn1">
+                        Толығырақ
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/square600/454622062.webp?k=e444f745f5b6dcb9943731d5297af0ae3f32b88fb6cc9249ae005703302ce4c4&o=" alt="" style="border-radius: 10%">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Oi-Qaragai Mountain Resort
+
+                    </h1>
+                    <p>
+                      «Лесная сказка» таулы курорттық қонақ үйі Бесқайнар кентінен 7 км және Алматы қаласынан 35 минуттық жерде Іле-Алатау ұлттық паркінің аумағында тыныш жерде орналасқан.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'tours:booking' %}" class="btn1">
+                        Толығырақ
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/square600/186207338.webp?k=78e76b945b314c7116e1b9fb0db74b809d7870b66452dcb3b6f914f8d8e2a7de&o=" alt="" style="border-radius: 10%">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Shymbulak Resort Hotel
+                    </h1>
+                    <p>
+                      Бұл қонақ үй Іле-Алатау ұлттық саябағындағы Шымбұлақ тау-шаңғы курортының шаңғы көтергіштерінің жанында орналасқан.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'tours:booking' %}" class="btn1">
+                        Толығырақ
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/square600/109683626.webp?k=f4e91a19be7e662f060d84df9e0adc567a440f268229caca4933e4942b1e4dd2&o=" alt="" style="border-radius: 10%">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+          <li data-target="#customCarousel1" data-slide-to="3"></li>
+        </ol>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Біздің <span>Брондау</span>
+          </h2>
+          <p>
+            Біз клиенттеріміздің қажеттіліктерін қанағаттандыру үшін көптеген Қазақстан Республикасының тур орталарын қолсқан болатынбыз қосқан болатынбыз. Біздің сайт арқылы сіз келесі ақпаратты ала аласыз:
+          </p>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="https://avatars.mds.yandex.net/i?id=5765031446f5703d24bcd2d8e47d45246d18c56b-10415032-images-thumbs&n=13" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Туристік орталықтар
+                </h5>
+                <p>
+                  Біздің сайтта Қазақстан Республикасының әртүрлі туристік орталықтары туралы кең ақпарат берілген. Біз әрбір орталықтың егжей-тегжейлі сипаттамасын, оның ішінде оның географиялық орналасуын, табиғи ерекшеліктерін, қолжетімді ойын-сауық пен көрікті жерлерін береміз.
+                </p>
+                <a href="{% url 'tours:booking' %}">
+                  Толығырақ
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="https://avatars.mds.yandex.net/i?id=3f756b4fcb67a7da549fb1c3d48e470cd0a87b6c-10350336-images-thumbs&n=13" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Тұрғын үйді брондау
+                </h5>
+                <p>
+                  Біз Қазақстанның туристік орталықтарында орналастырудың әртүрлі нұсқаларын онлайн брондау мүмкіндігін береміз. Біздің веб-сайтта сіз қалаған тұрғын үй түрін таңдай аласыз - қонақ үйлер мен қонақүйлерден кемпингтер мен жайлы коттедждерге дейін.
+                </p>
+                <a href="{% url 'tours:booking' %}">
+                  Толығырақ
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="https://avatars.mds.yandex.net/i?id=aa070ff5dac16f01008127f6a590dc8639fc5264-7543737-images-thumbs&n=13" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Пайдалы ақпарат пен кеңестер
+                </h5>
+                <p>
+                  Біз сондай-ақ Қазақстан Республикасында демалуды жоспарлайтын саяхатшыларға пайдалы кеңестер мен ақпарат береміз. Бұған маршрутты таңдау, қауіпсіздік, тамақтану және максималды ләззат пен жайлылық үшін сапарыңызды қалай жақсы ұйымдастыру керектігі туралы кеңестер кіреді.
+                </p>
+                <a href="{% url 'tours:booking' %}">
+                  Толығырақ
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="btn-box">
+          <a href="{% url 'tours:booking' %}">
+            Барлығын көру
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+
+  <!-- about section -->
+  <a name="about-section"></a>
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="heading_container heading_center">
+        <h2>
+          Біз <span>Туралы</span>
+        </h2>
+        <p>
+          Ертеңгі Сәтті Бүгін Жасаңыз!
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="https://avatars.mds.yandex.net/i?id=4118ef081b4c9db8bbf3fb74bb1bec6d6ac69174-5104820-images-thumbs&n=13" alt="" style="border-radius: 10%;">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3>
+              My Tour
+            </h3>
+            <p>
+              Біздің қызметтеріміз әлемнің жаңа бұрыштарын ашуға, қайталанбас мәдениеттерге енуге және ұмытылмас естеліктер жасауға ұмтылатындарға арналған. Біз сіздің сенімді туристік гидпіз, сіздің шытырман оқиғаңыздың әр қадамында сізге көмектесуге дайынбыз.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  {% endblock %}
+
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+
+
+          <div class="info_contact">
+            <h4>
+              Мекен-жайы
+            </h4>
+            <div class="contact_link_box">
+              
+              <a href="https://wa.me/77052792895">
+                <span>
+                  Байланыс нөмірі :  +7 705 279 28 95
+                </span>
+                </a>
+              <a href="">
+                <span>
+                  mytour@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Ақпарат
+            </h4>
+            <p>
+              Біз сіздің сенімді туристік гидпіз, сіздің шытырман оқиғаңыздың әр қадамында сізге көмектесуге дайынбыз.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Сілтемелер
+            </h4>
+            <div class="info_links">
+              <a class="active" href="{% url 'tours:main' %}">
+                Үйге
+              </a>
+              <a class="" href="#about-section">
+                Біз туралы
+              </a>
+              <a class="" href="{% url 'tours:booking' %}">
+                Брондау
+              </a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="{% url 'tours:main' %}">MyTour</a>
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block style %}
+.hero_area {
+    position: relative;
+    min-height: 20vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+{% endblock %}
+{% block content %}
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{% static 'images/hero-bg-low.png' %}" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'tours:main' %}">
+            <span>
+              My Tour
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'tours:main' %}">Үйге </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'tours:main' %}"> Біз туралы <span class="sr-only">(current)</span> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'tours:booking' %}">Брондау</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            БРОНДАУҒА <span>БОЛАДЫ</span>
+          </h2>
+        </div>
+        <div class="row">
+          {% for el in bookings %}
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                {% if el.photo %}
+                  <img src="{{ el.photo }}" alt="{{ el.title_name }}">
+                {% else %}
+                <img src="https://cdn.nur.kz/images/720/c56513dd3427f16c.webp" alt="">
+                {% endif %}
+              </div>
+              <div class="detail-box">
+                <h5>
+                  {{ el.title_name }}
+                </h5>
+                <p>
+                  {{ el.title_text }}
+                </p>
+
+                <a href="{% url 'tours:booking_details' el.id %}">Толығырақ</a>
+
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="btn-box">
+          <a href="{% url 'tours:register' %}">
+            Брондау
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+{% endblock %}

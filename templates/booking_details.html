@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подробная информация о туре</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .booking-details {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .title_name {
+        text-align: center;
+        }
+        .booking-details h2 {
+            color: #333;
+        }
+        .booking-details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .booking-description {
+            color: #666;
+        }
+        .booking-details {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .photos {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .main-photo {
+            width: 70%;
+            height: auto;
+            margin-bottom: 10px;
+            margin-right: 20px;
+        }
+
+        .small-photo {
+            width: 125px;
+            height: auto;
+            margin: 5px;
+        }
+.photos.less-than-five .small-photo {
+    display: inline-block;
+}
+
+.photos.more-than-four {
+    flex-direction: column;
+}
+.btntour {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btntour a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btntour a:hover {
+    background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="booking-details">
+        <div class="title_name">
+            <h2>{{ booking.title_name }}</h2>
+        </div>
+        <div class="main-photo-container">
+            {% if booking.photo %}
+            <img id="main-photo" class="main-photo" src="{{ booking.photo }}" alt="{{ booking.title_name }}">
+            {% endif %}
+        </div>
+
+        <div class="photos">
+            <img class="small-photo" src="{{ booking.photo }}" alt="{{ booking.title_name }}">
+            {% if booking.photo2 %}
+            <img class="small-photo" src="{{ booking.photo2 }}" alt="{{ booking.title_name }}">
+            {% endif %}
+            {% if booking.photo3 %}
+            <img class="small-photo" src="{{ booking.photo3 }}" alt="{{ booking.title_name }}">
+            {% endif %}
+            {% if booking.photo4 %}
+            <img class="small-photo" src="{{ booking.photo4 }}" alt="{{ booking.title_name }}">
+            {% endif %}
+            {% if booking.photo5 %}
+            <img class="small-photo" src="{{ booking.photo5 }}" alt="{{ booking.title_name }}">
+            {% endif %}
+        </div>
+
+        <div class="description">
+            {{ booking.title_main_text|linebreaks }}
+        </div>
+    </div>
+    <div class="btntour">
+        <a href="{% url 'tours:booking' %}">Турлар тізіміне оралу</a>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.small-photo').forEach(item => {
+        item.addEventListener('click', event => {
+            document.getElementById('main-photo').src = event.target.src;
+        });
+    });
+</script>
+
+
+</body>
+</html>

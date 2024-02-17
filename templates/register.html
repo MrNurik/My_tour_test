@@ -1,0 +1,122 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block style  %}
+.hero_area {
+    position: relative;
+    min-height: 20vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-column {
+    margin: 10px 0;
+    display: inline-block;
+    vertical-align: top; /* Выравнивание по верхнему краю */
+
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 10%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+p {
+    font-weight: bold;
+}
+
+{% endblock %}
+{% block content %}
+<div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{% static 'images/hero-bg-low.png' %}" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'tours:main' %}">
+            <span>
+              My Tour
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'tours:main' %}">Үйге </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'tours:main' %}"> Біз туралы <span class="sr-only">(current)</span> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'tours:booking' %}">Брондау</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+{% if messages %}
+    <div class="alert alert-danger" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+    <form method="post">
+        <div class="booking">
+            {% csrf_token %}
+    <div class="input-row">
+        <div class="input-column">
+            <p>Аты: {{ form.name }}</p>
+        </div>
+        <div class="input-column">
+            <p>Телефон номері: {{ form.phone_number }}</p>
+        </div>
+        <div class="input-column">
+            <p>Брондау уақыты: {{ form.booking_date }}</p>
+        </div>
+        <div class="input-column">
+            <p>Курорт: {{ form.resort}}</p>
+
+        </div>
+
+    </div>
+        <button type="submit" class="nav-link">Брондау</button></div>
+    </form>
+
+
+
+{% endblock %}
