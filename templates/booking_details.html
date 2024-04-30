@@ -121,6 +121,8 @@
         <div class="description">
             {{ booking.title_main_text|linebreaks }}
         </div>
+        Цена: {{ booking.price }} тг
+            <a href="{% url 'tours:payment' booking_id=booking.id %}">Оплатить</a> <!-- Ссылка на оплату -->
     </div>
     <div class="btntour">
         <a href="{% url 'tours:booking' %}">Турлар тізіміне оралу</a>

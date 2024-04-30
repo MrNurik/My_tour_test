@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from environs import Env
+from yookassa import Configuration
+from django.conf import settings
+
+
 
 env = Env()
 env.read_env()
@@ -29,6 +33,11 @@ SECRET_KEY = env.str(
   "SECRET_KEY",
   default="django-insecure-^qi19(+(oo-ere5b&$@275chw)k@7ob1)74aol5d$(k*)5kk5)",
 )
+
+YOOKASSA = {
+    'SHOP_ID': '378598',
+    'SECRET_KEY': 'test_2idb1salIwEG-GlpOr6ByAq3T7acwAnNQnfIVSIUDCY',
+}
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -124,6 +133,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+Configuration.account_id = settings.YOOKASSA['SHOP_ID']
+Configuration.secret_key = settings.YOOKASSA['SECRET_KEY']
 
 
 # Static files (CSS, JavaScript, Images)

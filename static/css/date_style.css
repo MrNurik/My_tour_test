@@ -1,12 +1,15 @@
-*{
-    margin: 0;
+
+
+date{
+    margin: -500px 0 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif; 
+    font-family: 'Poppins',sans-serif;
+
 }
 
 
-body{
+date{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,9 +19,10 @@ body{
 }
 
 .wrapper{
-    width: 450px;
+    width: 750px;
     background-color: #fff;
     border-radius: 10px;
+    padding: 0 0 0 200px;
 }
 
 .wrapper header{
@@ -29,6 +33,10 @@ body{
 }
 
 header .current-date {
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+.booking-time{
     font-size: 1.45rem;
     font-weight: 500;
 }
@@ -106,4 +114,17 @@ header .icons span:hover{
 
 .days li.active::before{
     background: #9b59b6;
+}
+.input-wrapper{
+    padding: 50px 200px 0 150px;
+}
+
+.reg-booking{
+.reg-booking{
+    text-align: center;
+    align-items: center;
+
+}
+.selected-range {
+    background-color: red; /* Change to your desired highlight color */
 }

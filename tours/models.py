@@ -11,6 +11,7 @@ class New_bookings(models.Model):
     photo3 = models.URLField('Фотография 3', null=True, blank=True)
     photo4 = models.URLField('Фотография 4', null=True, blank=True)
     photo5 = models.URLField('Фотография 5', null=True, blank=True)
+    price = models.DecimalField('Цена', max_digits=10, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return self.title_name
@@ -20,10 +21,12 @@ class New_bookings(models.Model):
         verbose_name_plural = 'Курорттар'
 
 
+
 class Booking(models.Model):
     name = models.CharField(max_length=30, verbose_name='Аты')
     phone_number = models.CharField(max_length=20, verbose_name='Телефон номері')
-    booking_date = models.DateField(verbose_name='Брондау уақыты')
+    start_date = models.DateField(verbose_name='Брондау уақыты басталады')
+    end_date = models.DateField(verbose_name='Брондау уақыты аяқталады')
     resort = models.ForeignKey(New_bookings, on_delete=models.CASCADE, verbose_name='Курорт')
 
     def __str__(self):
@@ -34,7 +37,7 @@ class Booking(models.Model):
         verbose_name_plural = 'Брондаулар'
 
     def clean(self):
-        existing_booking = Booking.objects.filter(booking_date=self.booking_date, resort=self.resort).exists()
+        existing_booking = Booking.objects.filter(start_date=self.start_date, resort=self.resort).exists()
         if existing_booking:
             raise ValidationError("Бұл уақыт бұрыннан брондалған. Басқа күнді таңдаңыз.")
 
